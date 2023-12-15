@@ -104,6 +104,7 @@ function getPasswordOptions() {
   
   var passwordLength = prompt(`Choose a length between 8 and 128 characters for you password`)
 
+  if (passwordLength)
 
 
 
