@@ -1,4 +1,4 @@
-// Array of special characters to be included in password
+/* // Array of special characters to be included in password
 var specialCharacters = [
   '@',
   '%',
@@ -90,21 +90,32 @@ var upperCasedCharacters = [
 
 
 const charOptions = [];
-const generatedPassword = '';
+const generatedPassword = ''; */
 // You can store the generatedPassword as a string and concat each character OR
 // as an array and push each character, then join once you have enough characters
 
 // Function to prompt user for password options
-function getPasswordOptions() {
+/* function getPasswordOptions() { */
   // Prompt for password length
   // At least 8 characters, no more than 128 characters
   // Conditional to check that the number that was entered is in range
   // Prompts store data as strings, so need to parse into a number
   // If the user's input is out of range, either return out of the function or call the function again
   
-  var passwordLength = prompt(`Choose a length between 8 and 128 characters for you password`)
+function userPasswordLength() {
+  var passwordLength = prompt(`Choose a length between 8 and 128 characters for you password`);
 
-  if (passwordLength)
+  var userInput = parseInt(passwordLength);
+
+  if (userInput >= 8 && userInput <= 128) {
+    confirm(`You chose a password of ${userInput} characters`)
+  } else {
+    confirm(`You need to chose a password length between 8 and 128 characters, please try again`)
+    return userPasswordLength()
+    }
+  }
+
+userPasswordLength();
 
 
 
@@ -117,10 +128,10 @@ function getPasswordOptions() {
   // OR you can keep the arrays separate and generate a random number to select the array and another to select the index
   
   // Once character sets are selected, move on to generating random characters
-}
+
 
 // Function for getting a random element from an array
-function getRandom(arr) {
+/* function getRandom(arr) { */
   // Need a variable to hold the password as it's being generated
   // Need a variable to hold the index that's being generated
 
@@ -131,7 +142,6 @@ function getRandom(arr) {
   // Add that character to the password
 
   // Once we finish the for loop, return the generated password
-}
 
 
 
@@ -144,6 +154,7 @@ function getRandom(arr) {
 
 
 
+/* 
 // Function to prompt user for password options
 function getPasswordOptions() {
 
@@ -171,4 +182,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
+generateBtn.addEventListener('click', writePassword); */
