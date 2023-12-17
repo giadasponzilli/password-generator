@@ -96,42 +96,51 @@ const charOptions = [];
 
 let userInputLength;
 
+
 function userPasswordOptions() {
+  
   var passwordLength = prompt(`Choose a length between 8 and 128 characters for you password`);
 
   userInputLength = parseInt(passwordLength);
 
   if (userInputLength >= 8 && userInputLength <= 128) {
     confirm(`You chose a password of ${userInputLength} characters`);
+      
       function userCharactersChoice() {
         var lowercase = confirm(`Do you want to include lowercase?`);
         var uppercase = confirm(`Do you want to include uppercase?`);
         var numeric = confirm(`Do you want to include numeric characters?`);
         var special = confirm(`Do you want to include special characters?`);
-        if (lowercase) {
-            var randomLowercaseIndex = Math.floor(Math.random() * lowerCasedCharacters.length);
-            var randomLowercase = lowerCasedCharacters[randomLowercaseIndex];
-            charOptions.push(randomLowercase);
+
+        function getRandomCharacter(charArray){
+          var randomIndex = Math.floor(Math.random() * charArray.length);
+          return charArray[randomIndex]
         }
-        if (uppercase) {
-            var randomUppercaseIndex = Math.floor(Math.random() * upperCasedCharacters.length);
-            var randomUppercase = upperCasedCharacters[randomUppercaseIndex];
-            charOptions.push(randomUppercase);
+
+        function pushRandomCharacter (charOptions, charArray) {
+          var randomCharacter = getRandomCharacter(charArray);
+          charOptions.push(randomCharacter);
         }
-        if (numeric) {
-            var randomNumericIndex = Math.floor(Math.random() * numericCharacters.length);
-            var randomNumeric = numericCharacters[randomNumericIndex];
-            charOptions.push(randomNumeric);
+
+        function userChoice() {
+          if (lowercase) {
+            pushRandomCharacter(charOptions, lowerCasedCharacters);
+          }
+          if (uppercase) {
+            pushRandomCharacter(charOptions, upperCasedCharacters);
+          }
+          if (numeric) {
+            pushRandomCharacter(charOptions, numericCharacters);
+          }
+          if (special) {
+            pushRandomCharacter(charOptions, specialCharacters);
+          }
+          else if (!lowercase && !uppercase && !numeric && !special) {
+            confirm(`You must coose at least one character type, please try again`);
+            return userCharactersChoice();
+          }
         }
-        if (special) {
-            var randomSpecialCharactersIndex = Math.floor(Math.random() * specialCharacters.length);
-            var randomSpecialCharacters = specialCharacters[randomSpecialCharactersIndex];
-            charOptions.push(randomSpecialCharacters);
-        }
-        else if (lowercase === false && uppercase === false && numeric === false && special === false) {
-          confirm(`You must coose at least one character type, please try again`);
-          return userCharactersChoice();
-        }
+        userChoice();
       }
       userCharactersChoice();
   } else {
