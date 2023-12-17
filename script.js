@@ -199,7 +199,7 @@ getRandom();
 console.log(passwordGeneratedIndex);
 
 
-
+// Function to generate password with user input
 function generatePassword() {
   const generatedPasswordArray = charOptions.concat(passwordGeneratedIndex); 
   console.log(generatedPasswordArray);
@@ -207,36 +207,10 @@ function generatePassword() {
 }
 
 
-var finalPassword = generatePassword();
+/* var finalPassword = generatePassword();
 
-confirm(finalPassword);
+confirm(finalPassword); */
 
-
-
-
-
-
-
-
-
-
-
-
-/* 
-// Function to prompt user for password options
-function getPasswordOptions() {
-
-}
-
-// Function for getting a random element from an array
-function getRandom(arr) {
-
-}
-
-// Function to generate password with user input
-function generatePassword() {
-
-}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
@@ -250,4 +224,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener('click', writePassword); */
+generateBtn.addEventListener('click', writePassword);
