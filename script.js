@@ -111,92 +111,6 @@ var upperCasedCharacters = [
   // You can store the generatedPassword as a string and concat each character OR
 // as an array and push each character, then join once you have enough characters
 
-
-
-const charOptions = [];
-const generatedPasswordArray = charOptions.concat(passwordGeneratedIndex); 
-
-
-let userInputLength;
-// Function to prompt user for password options
-function userPasswordOptions() {
-  var passwordLength = prompt(`Choose a length between 8 and 128 characters for you password`);
-
-  userInputLength = parseInt(passwordLength);
-
-  if (userInputLength >= 8 && userInputLength <= 128) {
-    confirm(`You chose a password of ${userInputLength} characters`)
-      function userCharactersChoice() {
-        var lowercase = confirm(`Do you want to include lowercase?`)
-        var uppercase = confirm(`Do you want to include uppercase?`)
-        var numeric = confirm(`Do you want to include numeric characters?`)
-        var special = confirm(`Do you want to include special characters?`)
-        if (lowercase) {
-            var randomLowercaseIndex = Math.floor(Math.random() * lowerCasedCharacters.length)
-            var randomLowercase = lowerCasedCharacters[randomLowercaseIndex]
-            charOptions.push(randomLowercase) 
-        }
-        if (uppercase) {
-            var randomUppercaseIndex = Math.floor(Math.random() * upperCasedCharacters.length)
-            var randomUppercase = upperCasedCharacters[randomUppercaseIndex]
-            charOptions.push(randomUppercase) 
-        }
-        if (numeric) {
-            var randomNumericIndex = Math.floor(Math.random() * numericCharacters.length)
-            var randomNumeric = numericCharacters[randomNumericIndex]
-            charOptions.push(randomNumeric) 
-        }
-        if (special) {
-            var randomSpecialCharactersIndex = Math.floor(Math.random() * specialCharacters.length)
-            var randomSpecialCharacters = specialCharacters[randomSpecialCharactersIndex]
-            charOptions.push(randomSpecialCharacters) 
-        }
-        else if (lowercase === false && uppercase === false && numeric === false && special === false) {
-          confirm(`You must coose at least one character type, please try again`)
-          return userCharactersChoice()
-        }
-      }
-      userCharactersChoice()
-  } else {
-    confirm(`You need to chose a password length between 8 and 128 characters, please try again`)
-    return userPasswordOptions()
-    }
-  }
-
-userPasswordOptions();
-
-
-
-
-
-// Function for getting a random element from an array
-
-let allCharacters = specialCharacters.concat(upperCasedCharacters,lowerCasedCharacters, numericCharacters);
-
-
-var passwordGeneratedIndex = []
-
-
-function getRandom(arr) {
-  
-  let numberOfIteration = (userInputLength - charOptions.length);
-
-  for (let i = 0; i < numberOfIteration; i++) {
-    var randomAllCharactersIndex = Math.floor(Math.random() * allCharacters.length)
-    var randomAllCharacters = allCharacters[randomAllCharactersIndex]
-    passwordGeneratedIndex.push(randomAllCharacters)
-  }
-}
-
-getRandom()
-
-console.log(passwordGeneratedIndex)
-
-console.log(`The password is`, generatedPasswordArray.join(``));
-
-
-
-
   // Need a variable to hold the password as it's being generated
   // Need a variable to hold the index that's being generated
 
@@ -207,6 +121,95 @@ console.log(`The password is`, generatedPasswordArray.join(``));
   // Add that character to the password
 
   // Once we finish the for loop, return the generated password
+
+
+
+const charOptions = [];
+
+
+let userInputLength;
+// Function to prompt user for password options
+function userPasswordOptions() {
+  var passwordLength = prompt(`Choose a length between 8 and 128 characters for you password`);
+
+  userInputLength = parseInt(passwordLength);
+
+  if (userInputLength >= 8 && userInputLength <= 128) {
+    confirm(`You chose a password of ${userInputLength} characters`);
+      function userCharactersChoice() {
+        var lowercase = confirm(`Do you want to include lowercase?`);
+        var uppercase = confirm(`Do you want to include uppercase?`);
+        var numeric = confirm(`Do you want to include numeric characters?`);
+        var special = confirm(`Do you want to include special characters?`);
+        if (lowercase) {
+            var randomLowercaseIndex = Math.floor(Math.random() * lowerCasedCharacters.length);
+            var randomLowercase = lowerCasedCharacters[randomLowercaseIndex];
+            charOptions.push(randomLowercase) 
+        }
+        if (uppercase) {
+            var randomUppercaseIndex = Math.floor(Math.random() * upperCasedCharacters.length);
+            var randomUppercase = upperCasedCharacters[randomUppercaseIndex];
+            charOptions.push(randomUppercase);
+        }
+        if (numeric) {
+            var randomNumericIndex = Math.floor(Math.random() * numericCharacters.length);
+            var randomNumeric = numericCharacters[randomNumericIndex];
+            charOptions.push(randomNumeric) ;
+        }
+        if (special) {
+            var randomSpecialCharactersIndex = Math.floor(Math.random() * specialCharacters.length);
+            var randomSpecialCharacters = specialCharacters[randomSpecialCharactersIndex];
+            charOptions.push(randomSpecialCharacters) ;
+        }
+        else if (lowercase === false && uppercase === false && numeric === false && special === false) {
+          confirm(`You must coose at least one character type, please try again`);
+          return userCharactersChoice();
+        }
+      }
+      userCharactersChoice();
+  } else {
+    confirm(`You need to chose a password length between 8 and 128 characters, please try again`);
+    return userPasswordOptions();
+    }
+  }
+
+userPasswordOptions();
+
+console.log(charOptions);
+
+
+
+// Function for getting a random element from an array
+
+let allCharacters = specialCharacters.concat(upperCasedCharacters,lowerCasedCharacters, numericCharacters);
+
+var passwordGeneratedIndex = [];
+
+function getRandom(r) {
+  let numberOfIteration = (userInputLength - charOptions.length);
+  for (let i = 0; i < numberOfIteration; i++) {
+    var randomAllCharactersIndex = Math.floor(Math.random() * allCharacters.length);
+    var randomAllCharacters = allCharacters[randomAllCharactersIndex];
+    passwordGeneratedIndex.push(randomAllCharacters);
+  }
+}
+
+getRandom();
+
+console.log(passwordGeneratedIndex);
+
+
+
+function generatePassword() {
+  const generatedPasswordArray = charOptions.concat(passwordGeneratedIndex); 
+  console.log(generatedPasswordArray);
+  return generatedPasswordArray.join(``);
+}
+
+
+var finalPassword = generatePassword();
+
+confirm(finalPassword);
 
 
 
