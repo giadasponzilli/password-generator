@@ -143,12 +143,13 @@ function userPasswordOptions() {
         userChoice();
       }
       userCharactersChoice();
-  } else {
-    confirm(`You need to chose a password length between 8 and 128 characters, please try again`);
+  } 
+  else {
+    confirm(`You need to choose a password length between 8 and 128 characters, please try again`);
     return userPasswordOptions();
-    }
-    console.log(charOptions);
   }
+  console.log(charOptions);
+}
 
 userPasswordOptions();
 
