@@ -13,6 +13,19 @@ The code is deployed at https://giadasponzilli.github.io/password-generator/
 
 ## Screenshots
 
+![Alt text](<assets/images/Screenshot 2023-12-19 at 08.51.55.png>)
+
+![Alt text](<assets/images/Screenshot 2023-12-19 at 08.50.53.png>)
+
+![Alt text](<assets/images/Screenshot 2023-12-19 at 08.51.09.png>)
+
+![Alt text](<assets/images/Screenshot 2023-12-19 at 08.51.19.png>)
+
+![Alt text](<assets/images/Screenshot 2023-12-19 at 08.51.27.png>)
+
+![Alt text](<assets/images/Screenshot 2023-12-19 at 08.51.35.png>)
+
+![Alt text](<assets/images/Screenshot 2023-12-19 at 08.52.04.png>)
 
 ## Installation
 

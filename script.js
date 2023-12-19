@@ -99,7 +99,7 @@ let userInputLength;
 
 function userPasswordOptions() {
   
-  var passwordLength = prompt(`Choose a length between 8 and 128 characters for you password`);
+  var passwordLength = prompt(`Choose a length between 8 and 128 characters for your password`);
 
   userInputLength = parseInt(passwordLength);
 
