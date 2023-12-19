@@ -29,7 +29,7 @@ The code is deployed at https://giadasponzilli.github.io/password-generator/
 
 ## Installation
 
-This code can be installed clicking on the "Code" green button above and git cloning the SSH to you local terminal.
+This code can be installed clicking on the "Code" green button above and git cloning the SSH to your local terminal.
 
 ## Usage
 
