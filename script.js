@@ -1,5 +1,5 @@
 // Array of special characters to be included in password
-var specialCharacters = [
+const specialCharacters = [
   '@',
   '%',
   '+',
@@ -26,10 +26,10 @@ var specialCharacters = [
 ];
 
 // Array of numeric characters to be included in password
-var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 // Array of lowercase characters to be included in password
-var lowerCasedCharacters = [
+const lowerCasedCharacters = [
   'a',
   'b',
   'c',
@@ -59,7 +59,7 @@ var lowerCasedCharacters = [
 ];
 
 // Array of uppercase characters to be included in password
-var upperCasedCharacters = [
+const upperCasedCharacters = [
   'A',
   'B',
   'C',
@@ -96,12 +96,12 @@ const charOptions = [];
 
 let userInputLength;
 
-let generatedArraySelectedChars = [];
+const generatedArraySelectedChars = [];
 
 
 function userPasswordOptions() {
   
-  var passwordLength = prompt(`Choose a length between 8 and 128 characters for your password`);
+  const passwordLength = prompt(`Choose a length between 8 and 128 characters for your password`);
 
   userInputLength = parseInt(passwordLength);
 
@@ -109,21 +109,21 @@ function userPasswordOptions() {
     confirm(`You chose a password of ${userInputLength} characters`);
       
       function userCharactersChoice() {
-        var lowercase = confirm(`Do you want to include lowercase?`);
-        var uppercase = confirm(`Do you want to include uppercase?`);
-        var numeric = confirm(`Do you want to include numeric characters?`);
-        var special = confirm(`Do you want to include special characters?`);
+        const lowercase = confirm(`Do you want to include lowercase?`);
+        const uppercase = confirm(`Do you want to include uppercase?`);
+        const numeric = confirm(`Do you want to include numeric characters?`);
+        const special = confirm(`Do you want to include special characters?`);
 
 
         // Get one random character for each array of characters selected by the user
         function getRandomCharacter(charArray){
-          var randomIndex = Math.floor(Math.random() * charArray.length);
+          const randomIndex = Math.floor(Math.random() * charArray.length);
           return charArray[randomIndex]
         }
 
         // Push the random character to the charOptions array
         function pushRandomCharacter (charOptions, charArray) {
-          var randomCharacter = getRandomCharacter(charArray);
+          const randomCharacter = getRandomCharacter(charArray);
           charOptions.push(randomCharacter);
         }
 
@@ -173,16 +173,16 @@ userPasswordOptions();
 
 // Function for getting a random character from the array of arrays generatedArraySelectedChars. To get random characters, generatedArraySelectedChars is transformed in a flat array where the for loop iterates x number of times (User's desired password length - User's number of character set choices) to give a random index (using Math.floor(Math.random() method) which is then applied to the mega array and pushed it to a new array (outside of the function so it can be used globally).
 
-var randomPasswordGenerated = [];
+const randomPasswordGenerated = [];
 
 function getRandom(arr) {
 
   const flattenedGeneratedArraySelectedChars = [].concat(...generatedArraySelectedChars);
 
-  let numberOfIteration = (userInputLength - charOptions.length);
+  const numberOfIteration = (userInputLength - charOptions.length);
   for (let i = 0; i < numberOfIteration; i++) {
-    var randomAllCharactersIndex = Math.floor(Math.random() * flattenedGeneratedArraySelectedChars.length);
-    var randomAllCharacters = flattenedGeneratedArraySelectedChars[randomAllCharactersIndex];
+    const randomAllCharactersIndex = Math.floor(Math.random() * flattenedGeneratedArraySelectedChars.length);
+    const randomAllCharacters = flattenedGeneratedArraySelectedChars[randomAllCharactersIndex];
     randomPasswordGenerated.push(randomAllCharacters);
   }
   // console.log(randomPasswordGenerated);
@@ -201,12 +201,12 @@ function generatePassword() {
 
 
 // Get references to the #generate element
-var generateBtn = document.querySelector('#generate');
+const generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
+  const password = generatePassword();
+  const passwordText = document.querySelector('#password');
 
   passwordText.value = password;
 }
